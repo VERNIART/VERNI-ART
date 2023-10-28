@@ -10,6 +10,14 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        iframe {
+            z-index: 0;
         }
 
         #menu {
@@ -19,8 +27,6 @@
             width: 100vw;
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.97);
-            opacity: 0;
-            visibility: hidden;
             transform: translateX(100%);
             transition: all 0.3s ease;
             display: flex;
@@ -28,7 +34,7 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            z-index: 1; /* z-index 추가하여 영상보다 상위로 위치 */
+            z-index: 10; 
         }
 
         #menu a {
@@ -42,7 +48,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 100;
+            z-index: 20;
             cursor: pointer;
             width: 35px;
             height: 3px;
@@ -86,16 +92,11 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 100;
+            z-index: 20;
         }
 
         #logo img {
             width: 200px;
-        }
-
-        iframe {
-            display: block;
-            margin: 80px auto 0 auto;
         }
 
         #closeMenu {
@@ -103,6 +104,7 @@
             top: 20px;
             right: 20px;
             cursor: pointer;
+            z-index: 30;
         }
     </style>
 </head>
@@ -130,15 +132,11 @@
         const closeMenu = document.getElementById('closeMenu');
 
         menuBtn.addEventListener('click', () => {
-            menu.style.opacity = "1";
-            menu.style.visibility = "visible";
             menu.style.transform = "translateX(0)";
             menuBtn.classList.add('close');
         });
 
         closeMenu.addEventListener('click', () => {
-            menu.style.opacity = "0";
-            menu.style.visibility = "hidden";
             menu.style.transform = "translateX(100%)";
             menuBtn.classList.remove('close');
         });
