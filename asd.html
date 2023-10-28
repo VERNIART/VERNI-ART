@@ -8,71 +8,34 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: transparent;
-            color: white;
+            background-color: white;
         }
 
         header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: transparent;
+            position: relative;
         }
 
-        .menu-container {
-            position: fixed;
+        label[for="menu"], .menu-container {
+            position: absolute;
             top: 0;
             right: 0;
-            width: 250px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.97);
-            overflow-y: auto;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-
-        #menu:checked + .menu-container {
-            transform: translateX(0);
-        }
-
-        #menu {
-            display: none;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            padding: 15px 20px;
-            font-size: 20px;
         }
 
         label[for="menu"] {
-            cursor: pointer;
-            display: block;
             width: 30px;
-            height: 24px;
-            position: absolute;
-            top: 10px;
-            right: 20px;
+            height: 30px;
+            background-color: transparent;
+            cursor: pointer;
         }
 
-        label[for="menu"]:before,
-        label[for="menu"]:after,
-        label[for="menu"] div {
-            background-color: black;
+        label[for="menu"]:before, label[for="menu"]:after, label[for="menu"] div {
             content: '';
-            display: block;
-            height: 3px;
-            width: 100%;
             position: absolute;
+            height: 5px;
+            width: 100%;
+            background-color: black;
             left: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         label[for="menu"]:before {
@@ -88,50 +51,63 @@
             transform: translateY(-50%);
         }
 
-        .menu-close {
+        .close-menu {
             position: absolute;
             top: 10px;
-            right: 10px;
-            font-size: 24px;
+            right: 20px;
             cursor: pointer;
-            color: white;
+            display: none;
         }
 
-        iframe {
-            width: 100%;
-            height: 50vw;
-            max-height: 350px;
-            border: none;
-            z-index: -2;
+        #menu:checked + .menu-container .close-menu {
+            display: block;
         }
 
-        img {
-            width: 100%;
+        nav ul {
+            font-weight: bold;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
+
+        img.logo {
+            display: block;
+            margin: auto; 
+            height: 50px; 
+        }
+
+        .quote {
+            text-align: center;
+            margin: 20px 0;
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <img src="logo_B.png" alt="VERNI Art Logo" style="width: 50%;">
-    </header>
-    <label for="menu">
-        <div></div>
-        <div></div>
-        <div></div>
-    </label>
+
+<header>
+    <img src="logo_B.png" alt="VERNI Art Logo" class="logo">
     <input type="checkbox" id="menu">
+    <label for="menu"></label>
     <div class="menu-container">
-        <span class="menu-close" onclick="document.getElementById('menu').checked = false;">✖</span>
+        <label class="close-menu" for="menu">X</label>
         <nav>
             <ul>
-                <li>Intro</li>
+                <li>Home</li>
                 <li>About</li>
                 <li>Work</li>
-                <li>Price</li>
-                <li>Reservation</li>
+                <li>Projects</li>
+                <li>Contact</li>
             </ul>
         </nav>
     </div>
-    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</header>
+
+<div class="quote">
+    찍어내는 제품이 아닌, 감동을 주는 작품을 선물할게요.
+</div>
+
+<!-- 여기에 유튜브 동영상을 삽입하세요. -->
+
 </body>
 </html>
