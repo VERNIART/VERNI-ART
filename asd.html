@@ -1,108 +1,137 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VERNI Art</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
-            color: #333;
+            background-color: transparent;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: transparent;
+        }
+
+        .menu-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.97);
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        #menu:checked + .menu-container {
+            transform: translateX(0);
         }
 
         #menu {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.97);
-            z-index: 1;
         }
 
-        #menu .content {
-            color: #fff;
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        #menuBtn {
-            position: absolute;
-            top: 2%;
-            right: 2%;
-            z-index: 2;
-            background: none;
-            border: none;
-            outline: none;
+        nav ul li {
+            padding: 15px 20px;
+            font-size: 20px;
+        }
+
+        label[for="menu"] {
             cursor: pointer;
-            font-size: 24px;
-            color: #000;
-        }
-
-        #menu .content a {
-            color: #fff;
-            text-decoration: none;
-            margin: 10px 0;
-        }
-
-        #logo {
-            text-align: center;
-            margin-top: 20px;
             display: block;
+            width: 30px;
+            height: 24px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
         }
 
-        #logo img {
+        label[for="menu"]:before,
+        label[for="menu"]:after,
+        label[for="menu"] div {
+            background-color: black;
+            content: '';
+            display: block;
+            height: 3px;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        label[for="menu"]:before {
+            top: 0;
+        }
+
+        label[for="menu"]:after {
+            bottom: 0;
+        }
+
+        label[for="menu"] div {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 50vw;
+            max-height: 350px;
+            border: none;
+            z-index: -2;
+        }
+
+        img {
             width: 50%;
-            margin: 0 auto;
-        }
-
-        .youtube-container {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .youtube-container p {
-            font-size: 18px;
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="menu">
-        <div class="content">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Work</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
-        </div>
+    <header>
+        <img src="logo_B.png" alt="VERNI Art Logo">
+    </header>
+    <label for="menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+    <input type="checkbox" id="menu">
+    <div class="menu-container">
+        <span class="menu-close" onclick="document.getElementById('menu').checked = false;">✖</span>
+        <nav>
+            <ul>
+                <li>Intro</li>
+                <li>About</li>
+                <li>Work</li>
+                <li>Price</li>
+                <li>Reservation</li>
+            </ul>
+        </nav>
     </div>
-    <button id="menuBtn">&#9776;</button>
-    <a href="index_m.html" id="logo">
-        <img src="logo_B.png" alt="VERNI Art">
-    </a>
-    <div class="youtube-container">
-        <p>찍어내는 제품이 아닌, 감동을 주는 작품을 선물할게요.</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <script>
-        document.getElementById('menuBtn').addEventListener('click', function() {
-            let menu = document.getElementById('menu');
-            if(menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-    </script>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
