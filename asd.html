@@ -2,156 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VERNI Art</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: transparent;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 10px 0;
-            background-color: transparent;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-        }
-
-        .menu-container {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.97);
-            overflow-y: auto;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        #menu:checked + .menu-container {
-            transform: translateX(0);
+            background-color: #000;
         }
 
         #menu {
-            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.97);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+        #menu a {
+            color: #fff;
+            font-weight: bold; /* 폰트 굵게 */
+            text-decoration: none;
+            font-size: 2rem;
         }
 
-        nav ul li {
-            padding: 15px 20px;
-            font-size: 20px;
-        }
-
-        label[for="menu"] {
-            cursor: pointer;
-            display: block;
-            width: 30px;
-            height: 24px;
-            position: absolute;
-            top: 10px;
+        #menuBtn {
+            position: fixed;
+            top: 20px;
             right: 20px;
-            z-index: 1000;
-        }
-
-        label[for="menu"]:before,
-        label[for="menu"]:after,
-        label[for="menu"] div {
-            background-color: black;
-            content: '';
-            display: block;
+            z-index: 100;
+            cursor: pointer;
+            width: 35px;
             height: 3px;
-            width: 100%;
-            position: absolute;
-            left: 0;
+            background-color: #000;
             transition: all 0.3s ease;
         }
 
-        label[for="menu"]:before {
-            top: 0;
-        }
-
-        label[for="menu"]:after {
-            bottom: 0;
-        }
-
-        label[for="menu"] div {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .menu-close {
+        #menuBtn:before,
+        #menuBtn:after {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background-color: #000;
+            transition: all 0.3s ease;
         }
 
-        .video-container {
-            z-index: -2;
-            width: 100%;
-            max-width: 800px;
+        #menuBtn:before {
+            top: -10px;
+        }
+
+        #menuBtn:after {
+            bottom: -10px;
+        }
+
+        #menuBtn.close {
+            background-color: transparent;
+        }
+
+        #menuBtn.close:before {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        #menuBtn.close:after {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        #logo {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        #logo img {
+            width: 200px;
         }
 
         iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
+            display: block;
+            margin: 80px auto 0 auto;
         }
 
-        img {
-            width: 50%;  /* 로고 이미지 크기를 2배로 늘렸습니다. */
-            display: block;
-            margin: 0 auto;
+        #closeMenu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="logo_B.png" alt="VERNI Art Logo"></a>
-    </header>
-    <label for="menu">
-        <div></div>
-        <div></div>
-        <div></div>
-    </label>
-    <input type="checkbox" id="menu">
-    <div class="menu-container">
-        <span class="menu-close" onclick="document.getElementById('menu').checked = false;">✖</span>
-        <nav>
-            <ul>
-                <li>Intro</li>
-                <li>About</li>
-                <li>Work</li>
-                <li>Price</li>
-                <li>Reservation</li>
-            </ul>
-        </nav>
+    <div id="logo">
+        <a href="index.html">
+            <img src="logo_B.png" alt="VERNI Art Logo">
+        </a>
     </div>
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+
+    <div id="menuBtn"></div>
+
+    <div id="menu">
+        <a href="index_m.html">Intro</a> <!-- 링크 수정 -->
+        <a href="#">Works</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <div id="closeMenu">X</div>
     </div>
+
+    <script>
+        const menu = document.getElementById('menu');
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.style.opacity = "1";
+            menu.style.visibility = "visible";
+            menu.style.transform = "translateX(0)";
+            menuBtn.classList.add('close');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            menu.style.opacity = "0";
+            menu.style.visibility = "hidden";
+            menu.style.transform = "translateX(100%)";
+            menuBtn.classList.remove('close');
+        });
+    </script>
 </body>
 </html>
