@@ -20,20 +20,21 @@
 
         header img {
             width: 100px;
-            background: transparent;  /* 로고 배경색 제거 */
+            background: transparent; 
         }
 
         #menu {
             display: none;
         }
 
-        label[for="menu"] {
+        label[for="menu"], label[for="menu-close"] {
             cursor: pointer;
             font-size: 30px;
+            color: white;  /* 글자색 및 X 버튼 색상 변경 */
         }
 
         label[for="menu"]:before {
-            content: '\2630'; /* 햄버거 아이콘 */
+            content: '\2630'; 
         }
 
         nav {
@@ -57,6 +58,7 @@
         nav ul li {
             margin: 15px;
             font-size: 20px;
+            color: white;  /* 메뉴 글자색 변경 */
         }
 
         #menu:checked + nav {
@@ -69,12 +71,10 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            cursor: pointer;
-            font-size: 30px;
         }
 
         label[for="menu-close"]:before {
-            content: '\00D7'; /* X 아이콘 */
+            content: '\00D7';
         }
     </style>
 </head>
