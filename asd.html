@@ -2,108 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Page</title>
+    <title>Mobile Page with Menu</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 20px;
             background-color: #333;
-            color: #fff;
         }
+
         header img {
-            max-height: 50px;
+            width: 100px;
         }
+
+        #menu {
+            display: none;
+        }
+
+        label[for="menu"] {
+            display: block;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        label[for="menu"]:before {
+            content: '\2630';
+            font-size: 30px;
+        }
+
         nav {
             position: fixed;
             top: 0;
-            right: -300px;
+            right: -305px;
             width: 300px;
             height: 100%;
-            background-color: rgba(51, 51, 51, 0.6);
-            padding: 20px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-            transition: right 0.3s;
+            background: rgba(0, 0, 0, 0.6);
+            padding-top: 20px;
+            transition: opacity 0.3s, right 0.3s;
+            opacity: 0;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
         }
+
         nav ul {
             list-style: none;
             padding: 0;
         }
+
         nav ul li {
-            margin-bottom: 10px;
+            margin: 15px;
+            font-size: 20px;
         }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
+
+        #menu:checked + nav {
+            opacity: 1;
+            right: 0;
         }
-        .menu-toggle {
-            font-size: 30px;
-            cursor: pointer;
-            color: #fff;
-        }
-        .close-btn {
-            font-size: 30px;
-            cursor: pointer;
-            color: #fff;
+
+        label[for="menu-close"] {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 20px;
+            right: 20px;
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
         }
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
+
+        #menu:checked ~ label[for="menu-close"] {
+            display: block;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <img src="logo.png" alt="Logo">
-    <span class="menu-toggle">&#9776;</span>
-</header>
-
-<nav>
-    <span class="close-btn">&times;</span>
-    <ul>
-        <li><a href="#intro">Intro</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#price">Price</a></li>
-        <li><a href="#reservation">Reservation</a></li>
-    </ul>
-</nav>
-
-<div class="video-container">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&controls=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<script>
-    document.querySelector('.menu-toggle').addEventListener('click', function () {
-        document.querySelector('nav').style.right = '0';
-    });
-
-    document.querySelector('.close-btn').addEventListener('click', function () {
-        document.querySelector('nav').style.right = '-300px';
-    });
-</script>
-
+    <header>
+        <img src="path-to-logo-image.png" alt="Logo">
+        <label for="menu"></label>
+    </header>
+    <input type="checkbox" id="menu">
+    <nav>
+        <label for="menu-close">&times;</label>
+        <ul>
+            <li>Intro</li>
+            <li>About</li>
+            <li>Work</li>
+            <li>Price</li>
+            <li>Reservation</li>
+        </ul>
+    </nav>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen style="z-index: -2;"></iframe>
 </body>
 </html>
