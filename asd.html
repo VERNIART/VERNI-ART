@@ -3,97 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Page with Menu</title>
+    <title>VERNI Art</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #000;
+            color: white;
         }
 
         header {
             display: flex;
             justify-content: space-between;
+            padding: 10px 20px;
             align-items: center;
-            padding: 20px;
+            background-color: transparent;
         }
 
-        header img {
-            width: 100px;
-            background: transparent; 
+        .menu-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.97);
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        #menu:checked + .menu-container {
+            transform: translateX(0);
         }
 
         #menu {
             display: none;
         }
 
-        label[for="menu"], label[for="menu-close"] {
-            cursor: pointer;
-            font-size: 30px;
-            color: white;  /* 글자색 및 X 버튼 색상 변경 */
-        }
-
-        label[for="menu"]:before {
-            content: '\2630'; 
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            right: -305px;
-            width: 300px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.97);
-            padding-top: 20px;
-            transition: opacity 0.3s, right 0.3s;
-            opacity: 0;
-            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
         nav ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
         }
 
         nav ul li {
-            margin: 15px;
+            padding: 15px 20px;
             font-size: 20px;
-            color: white;  /* 메뉴 글자색 변경 */
         }
 
-        #menu:checked + nav {
-            opacity: 1;
-            right: 0;
-        }
-
-        #menu:checked + nav label[for="menu-close"] {
+        label[for="menu"] {
+            background-color: black;
+            width: 30px;
+            height: 25px;
             display: block;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            cursor: pointer;
         }
 
-        label[for="menu-close"]:before {
-            content: '\00D7';
+        .menu-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        iframe {
+            width: 100%;
+            height: 50vw;
+            max-height: 350px;
+            border: none;
+            z-index: -2;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo_B.png" alt="Logo">
+        <img src="https://via.placeholder.com/100" alt="VERNI Art Logo" width="100">
         <label for="menu"></label>
     </header>
     <input type="checkbox" id="menu">
-    <nav>
-        <label for="menu-close"></label>
-        <ul>
-            <li>Intro</li>
-            <li>About</li>
-            <li>Work</li>
-            <li>Price</li>
-            <li>Reservation</li>
-        </ul>
-    </nav>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen style="z-index: -2;"></iframe>
+    <div class="menu-container">
+        <span class="menu-close" onclick="document.getElementById('menu').checked = false;">✖</span>
+        <nav>
+            <ul>
+                <li>Intro</li>
+                <li>About</li>
+                <li>Work</li>
+                <li>Price</li>
+                <li>Reservation</li>
+            </ul>
+        </nav>
+    </div>
+    <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
