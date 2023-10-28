@@ -27,17 +27,13 @@
             display: none;
         }
 
-        label[for="menu"], label[for="menu-close"] {
+        label[for="menu"] {
             cursor: pointer;
             font-size: 30px;
         }
 
         label[for="menu"]:before {
-            content: '\2630';
-        }
-
-        label[for="menu-close"]:before {
-            content: '\00D7';
+            content: '\2630'; /* 햄버거 아이콘 */
         }
 
         nav {
@@ -46,7 +42,7 @@
             right: -305px;
             width: 300px;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.97);
             padding-top: 20px;
             transition: opacity 0.3s, right 0.3s;
             opacity: 0;
@@ -68,15 +64,17 @@
             right: 0;
         }
 
-        #menu:checked ~ label[for="menu"] {
-            display: none;
+        #menu:checked + nav label[for="menu-close"] {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 30px;
         }
 
-        #menu:checked ~ label[for="menu-close"] {
-            display: block;
-            position: fixed;
-            right: 20px;
-            top: 20px;
+        label[for="menu-close"]:before {
+            content: '\00D7'; /* X 아이콘 */
         }
     </style>
 </head>
@@ -84,10 +82,10 @@
     <header>
         <img src="path-to-logo-image.png" alt="Logo">
         <label for="menu"></label>
-        <label for="menu-close"></label>
     </header>
     <input type="checkbox" id="menu">
     <nav>
+        <label for="menu-close"></label>
         <ul>
             <li>Intro</li>
             <li>About</li>
