@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERNI ART</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: black;
+      font-size: 1.2rem; /* 폰트 크기를 1.2배로 변경 */
+      letter-spacing: 1.5px;
+      line-height: 2;
+    }
+    .menu a {
+    font-size: 18px;
+    }
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .logo {
+      max-width: 37.5px;
+    }
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+      justify-content: center; /* 메뉴를 수평 중앙 정렬로 변경 */
+      flex-grow: 1; /* 메뉴를 화면 우측으로 밀어내지 않도록 설정 */
+    }
+    .menu a {
+      text-decoration: none;
+      color: black;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 20px;
+      text-align: left;
+    }
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    .contact-info a {
+      display: block;
+      color: black;
+    }
+    .reservation-steps {
+      list-style: none;
+      padding: 0;
+    }
+    .reservation-steps li {
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 100%;
+      border-bottom: 1px solid black;
+      margin: 20px 0;
+    }
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+  }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="background-video">
+    <source src="https://drive.google.com/file/d/1KXwy_p_2OfOZEJJRndOV5tJv8zX3LpS1/preview" type="video/mp4">
+    <!-- 다른 비디오 포맷도 지원하려면 여기에 추가합니다. -->
+  </video>
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="https://lh3.googleusercontent.com/u/2/drive-viewer/AK7aPaBjtkWJqwB5AUopoVLAoBRzwodmP9GXGlZW8JlaEUOWAGlOkN05fYzd1zaEhE5vu16_JXFsVfIGGVwxCo785KiUMHZw_g=w3840-h1947" alt="VERNI ART Logo">
+    <ul class="menu">
+      <li><a href="#intro">Intro</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#price">Price</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>우리의 예술, VERNI ART</h1>
+    <p>특별한 순간을 아름다운 예술로 간직하세요.</p>
+    <div class="contact-info">
+      <strong>KAKAO:</strong> <a href="https://open.kakao.com/o/s1ZSUehf" target="_blank">https://open.kakao.com/o/s1ZSUehf</a><br>
+      <strong>INSTA:</strong> <a href="https://instagram.com/verni_art_official?igshid=NTc4MTIwNjQ2YQ==" target="_blank">https://instagram.com/verni_art_official?igshid=NTc4MTIwNjQ2YQ==</a><br>
+      <strong>TEL:</strong> 010 - 4999 - 2555
+    </div>
+  </div>
+</body>
+</html>
