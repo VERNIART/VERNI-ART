@@ -24,10 +24,10 @@
         nav {
             position: fixed;
             top: 0;
-            right: -250px;
-            width: 250px;
+            right: -300px;
+            width: 300px;
             height: 100%;
-            background-color: rgba(51, 51, 51, 0.9);
+            background-color: rgba(51, 51, 51, 0.6);
             padding: 20px;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
             transition: right 0.3s;
@@ -76,7 +76,7 @@
 <body>
 
 <header>
-    <img src="logo_B.png" alt="Logo">
+    <img src="logo.png" alt="Logo">
     <span class="menu-toggle">&#9776;</span>
 </header>
 
@@ -101,7 +101,7 @@
     });
 
     document.querySelector('.close-btn').addEventListener('click', function () {
-        document.querySelector('nav').style.right = '-250px';
+        document.querySelector('nav').style.right = '-300px';
     });
 </script>
 
