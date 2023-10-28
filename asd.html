@@ -44,11 +44,11 @@
         }
 
         #menu {
-            width: 100%;
+            width: 70%;
             height: 100%;
             position: fixed;
             top: 0;
-            left: 0;
+            left: 15%; /* 100 - 70 = 30 and 30/2 = 15 */
             background-color: rgba(0, 0, 0, 0.97);
             display: none;
             flex-direction: column;
@@ -63,6 +63,17 @@
             font-weight: 700;
             text-decoration: none;
             margin: 20px 0;
+        }
+
+        #closeBtn {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            display: none;
+            z-index: 10;
         }
 
         iframe {
@@ -86,14 +97,18 @@
         <a href="#">ABOUT</a>
         <a href="#">CONTACT</a>
     </div>
+    <div id="closeBtn" onclick="toggleMenu()">X</div>
     <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu");
+            var closeBtn = document.getElementById("closeBtn");
             if (menu.style.display === "none" || menu.style.display === "") {
                 menu.style.display = "flex";
+                closeBtn.style.display = "block";
             } else {
                 menu.style.display = "none";
+                closeBtn.style.display = "none";
             }
         }
     </script>
