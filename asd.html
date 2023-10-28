@@ -1,102 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VERNI Art</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: white;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
         }
 
-        header {
-            position: relative;
-        }
-
-        label[for="menu"], .menu-container {
-            position: absolute;
+        #menu {
+            display: none;
+            position: fixed;
             top: 0;
-            right: 0;
-        }
-
-        label[for="menu"] {
-            width: 30px;
-            height: 30px;
-            background-color: transparent;
-            cursor: pointer;
-        }
-
-        label[for="menu"]:before, label[for="menu"]:after, label[for="menu"] div {
-            content: '';
-            position: absolute;
-            height: 5px;
-            width: 100%;
-            background-color: black;
             left: 0;
-            transition: all 0.3s;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.97);
+            z-index: 1;
         }
 
-        label[for="menu"]:before {
-            top: 0;
+        #menu .content {
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
 
-        label[for="menu"]:after {
-            bottom: 0;
-        }
-
-        label[for="menu"] div {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .close-menu {
+        #menuBtn, #closeBtn {
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 2%;
+            right: 2%;
+            z-index: 2;
+            background: none;
+            border: none;
+            outline: none;
             cursor: pointer;
+        }
+
+        #menuBtn .bar, #closeBtn .bar {
+            display: block;
+            width: 30px;
+            height: 4px;
+            background-color: #000;
+            margin: 5px 0;
+        }
+
+        #closeBtn {
             display: none;
         }
 
-        #menu:checked + .menu-container .close-menu {
+        #logo {
+            text-align: center;
+            margin-top: 20px;
             display: block;
         }
 
-        nav ul {
-            font-weight: bold; /* 폰트 굵게 변경 */
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        #logo img {
+            width: 50%;
+            margin: 0 auto;
         }
 
-        img.logo {
-            display: block;
-            margin: auto; /* 로고 중앙 정렬 */
-            height: 50px; /* 로고 사이즈 변경 */
+        .youtube-container {
+            text-align: center;
+            padding: 50px 0;
         }
 
+        .youtube-container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-
-<header>
-    <img src="logo_B.png" alt="VERNI Art Logo" class="logo"> <!-- 로고 이미지 주소 변경 -->
-    <input type="checkbox" id="menu">
-    <label for="menu"></label>
-    <div class="menu-container">
-        <label class="close-menu" for="menu">X</label>
-        <nav>
+    <div id="menu">
+        <div class="content">
+            <button id="closeBtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Work</li>
-                <li>Projects</li>
-                <li>Contact</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
-</header>
+    <button id="menuBtn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <a href="index_m.html" id="logo">
+        <img src="logo_B.png" alt="VERNI Art">
+    </a>
+    <div class="youtube-container">
+        <p>찍어내는 제품이 아닌, 감동을 주는 작품을 선물할게요.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script>
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            document.getElementById('menu').style.display = 'block';
+            document.getElementById('menuBtn').style.display = 'none';
+            document.getElementById('closeBtn').style.display = 'block';
+        });
 
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('menuBtn').style.display = 'block';
+            document.getElementById('closeBtn').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
