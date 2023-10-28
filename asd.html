@@ -16,27 +16,28 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #333;
         }
 
         header img {
             width: 100px;
+            background: transparent;  /* 로고 배경색 제거 */
         }
 
         #menu {
             display: none;
         }
 
-        label[for="menu"] {
-            display: block;
-            width: 30px;
-            height: 30px;
+        label[for="menu"], label[for="menu-close"] {
             cursor: pointer;
+            font-size: 30px;
         }
 
         label[for="menu"]:before {
             content: '\2630';
-            font-size: 30px;
+        }
+
+        label[for="menu-close"]:before {
+            content: '\00D7';
         }
 
         nav {
@@ -67,17 +68,15 @@
             right: 0;
         }
 
-        label[for="menu-close"] {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        #menu:checked ~ label[for="menu"] {
             display: none;
-            font-size: 25px;
-            cursor: pointer;
         }
 
         #menu:checked ~ label[for="menu-close"] {
             display: block;
+            position: fixed;
+            right: 20px;
+            top: 20px;
         }
     </style>
 </head>
@@ -85,10 +84,10 @@
     <header>
         <img src="path-to-logo-image.png" alt="Logo">
         <label for="menu"></label>
+        <label for="menu-close"></label>
     </header>
     <input type="checkbox" id="menu">
     <nav>
-        <label for="menu-close">&times;</label>
         <ul>
             <li>Intro</li>
             <li>About</li>
